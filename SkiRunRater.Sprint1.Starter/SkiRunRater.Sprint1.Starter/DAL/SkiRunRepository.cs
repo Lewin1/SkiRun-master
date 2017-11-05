@@ -244,17 +244,24 @@ namespace SkiRunRater
 
         public void DisplayQueriedVertical(List<SkiRun> matchingSkiRuns)
         {
-            foreach (SkiRun queriedSkiRun in matchingSkiRuns)
+            if (matchingSkiRuns.Count > 0)
             {
-                StringBuilder skiRunInfo = new StringBuilder();
+                foreach (SkiRun queriedSkiRun in matchingSkiRuns)
+                {
+                    StringBuilder skiRunInfo = new StringBuilder();
 
-                skiRunInfo.Append(queriedSkiRun.ID.ToString().PadRight(8));
-                skiRunInfo.Append(queriedSkiRun.Name.PadRight(25));
-                skiRunInfo.Append(queriedSkiRun.Vertical.ToString().PadRight(5));
+                    skiRunInfo.Append(queriedSkiRun.ID.ToString().PadRight(8));
+                    skiRunInfo.Append(queriedSkiRun.Name.PadRight(25));
+                    skiRunInfo.Append(queriedSkiRun.Vertical.ToString().PadRight(5));
+                    ConsoleView.DisplayMessage(skiRunInfo.ToString());
 
-                ConsoleView.DisplayMessage(skiRunInfo.ToString());
+                }
             }
-            Console.ReadLine();
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("There were no ski runs that matched your query.");
+            }
         }
 
         /// <summary>

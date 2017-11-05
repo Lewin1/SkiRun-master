@@ -96,14 +96,14 @@ namespace SkiRunRater
                             int minimumVertical = skiRunRepository.GetMinimumVertical();
                             int maximumVertical = skiRunRepository.GetMaximumVertical();
                             
-                            //Sorts all the aviable entries and pushes out those that match into a new list.
+                            //Sorts all the available entries and pushes out those that match into a new list.
                             List<SkiRun> matchingSkiRuns = skiRunRepository.QueryByVertical(minimumVertical, maximumVertical);
                             ConsoleView.DisplayReset();
 
                             //Displays the new list.
                             Console.WriteLine("Ski Runs with a vertical between " + minimumVertical + " and " + maximumVertical + ".");
                             skiRunRepository.DisplayQueriedVertical(matchingSkiRuns);
-
+                            ConsoleView.DisplayContinuePrompt();
                             break;
                         case AppEnum.ManagerAction.Quit:
                             active = false;

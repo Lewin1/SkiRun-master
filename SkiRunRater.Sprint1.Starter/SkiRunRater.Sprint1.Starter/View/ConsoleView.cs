@@ -185,6 +185,7 @@ namespace SkiRunRater
             DisplayAllSkiRuns(skiRuns);
             while (!validResponse)
             {
+                Console.WriteLine();
                 DisplayPromptMessage("Enter the ski run ID: ");
 
                 //skiRunID = ConsoleUtil.ValidateIntegerResponse("Please enter the ski run ID: ", Console.ReadLine());
@@ -212,14 +213,13 @@ namespace SkiRunRater
             DisplayMessage("");
 
             StringBuilder columnHeader = new StringBuilder();
-
-            columnHeader.Append("ID".PadRight(8));
+             columnHeader.Append("ID".PadRight(8));
             columnHeader.Append("Ski Run".PadRight(25));
             columnHeader.Append("Vertical in Feet".PadRight(5));
-
+           
             DisplayMessage(columnHeader.ToString());
-
-            foreach (SkiRun skiRun in skiRuns)
+            Console.WriteLine("_______________________________________________________________");
+             foreach (SkiRun skiRun in skiRuns)
             {
                 StringBuilder skiRunInfo = new StringBuilder();
 
@@ -249,6 +249,7 @@ namespace SkiRunRater
             columnHeader.Append("Vertical in Feet".PadRight(5));
 
             DisplayMessage(columnHeader.ToString());
+            Console.WriteLine("_______________________________________________________");
 
             foreach (SkiRun skiRun in skiRuns)
             {
